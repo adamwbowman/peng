@@ -1,0 +1,80 @@
+<!--
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* main.html
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+-->
+
+
+<head>
+	<title>Global Services: Platform Engineering</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	{{> navbar}}
+</body>
+
+<template name="navbar">  
+	<div class="navbar navbar-fixed-top navbar-inverse">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand" href="/">Platform Engineering</a>
+				<div class="nav pull-left">
+					<ul class="nav">
+						<li><button class="btn btn-primary requestService">Request a Service</button></li>
+						<li><button class="btn btn-primary createCalendar">Create Calendar</button></li>
+					</ul>
+				</div>
+				<div class="nav pull-right">
+					<ul class="nav">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								Admin
+								<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="/admin">Main</a></li>
+							</ul>
+						</li>
+						<li><a>{{> loginButtons align="right"}}</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		{{#if showRequestModal}}
+			{{> modals}}
+		{{/if}}
+	</div>
+</template>
+
+<template name="modals">
+	<div class="mask"> </div>
+	<div class="modal">
+		<div class="modal-header">
+			<button type="button" class="close cancel">&times;</button>
+			<h3>Create a Request</h3>
+		</div>
+		<div class="modal-body">
+			<input id="client" type="text" class="span5" placeholder="Client" data-provide="typeahead" autocomplete="off" data-source='{{clients}}' />
+			<input id="service" type="text" class="span5" placeholder="Service" data-provide="typeahead" autocomplete="off" data-source='{{services}}' />
+			<div class="input-daterange" id="datepicker">
+				<input type="text" id="startDate" class="input-small" name="start" placeholder="Start Date" />
+				<span class="add-on">to</span>
+				<input type="text" id="endDate" class="input-small" name="end" placeholder="End Date" />
+			</div>
+			<div class="btn-group" data-toggle="buttons-radio">
+				<button type="button" class="btn product active" id="product" value="SV">Singleview</button>
+				<button type="button" class="btn product" id="product" value="TSM" disabled>TSM</button>
+				<button type="button" class="btn product" id="product" value="WBMS" disabled>WBMS</button>
+			</div>
+			<br /><br />
+
+			<textarea id="description" class="span5" rows="7" placeholder="Any additional details"></textarea>
+		</div>
+		<div class="modal-footer">
+			<a href="#" class="btn cancel">Cancel</a>
+			<a href="#" class="btn btn-primary createRequest">Create this Request</a>
+		</div>
+	</div>
+</template>
+

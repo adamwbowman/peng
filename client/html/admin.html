@@ -1,0 +1,115 @@
+
+<!--
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* admin.html
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+-->
+
+
+<template name="admin">
+	<div class="container">
+		<div class="row">
+
+<!-- Teammates -->
+			<div class="span3">
+				<h3>Teammates</h3>
+				<div class="input-append">
+					<input class="span2 addTeammateInput" id="appendedInputButton" type="text">
+					<button class="btn addTeammate" type="button">+</button>
+				</div>
+				{{#each teammate}}
+					{{#if selected}}
+						<div class="input-prepend">
+							<span class="add-on deleteTeammate"><i class="icon-trash"></i></span>
+							<input class="span2 editTeammateInput" id="inputIcon" type="text" value="{{name}}">
+						</div>
+					{{else}}
+						<p class="currentSelection">
+						{{name}}</p>
+					{{/if}}
+				{{/each}}
+			</div>
+
+<!-- Clients -->
+			<div class="span3">
+				<h3>Clients</h3>
+				<div class="input-append">
+					<input class="span2 addClientInput" id="appendedInputButton" type="text">
+					<button class="btn addClient" type="button">+</button>
+				</div>
+				{{#each client}}
+					{{#if selected}}
+						<div class="input-prepend">
+							<span class="add-on deleteClient"><i class="icon-trash"></i></span>
+							<input class="span2 editClientInput" id="inputIcon" type="text" value="{{name}}">
+						</div>
+					{{else}}
+						<p class="currentSelection">
+						{{name}}</p>
+					{{/if}}
+				{{/each}}
+			</div>
+
+<!-- Countries -->
+			<div class="span3">
+				<h3>Countries</h3>
+				<div class="input-append">
+					<input class="span2 addCountryInput" id="appendedInputButton" type="text">
+					<button class="btn addCountry" type="button">+</button>
+				</div>
+				{{#each country}}
+					{{#if selected}}
+						<div class="input-prepend">
+							<span class="add-on deleteCountry"><i class="icon-trash"></i></span>
+							<input class="span2 editCountryInput" id="inputIcon" type="text" value="{{name}}">
+						</div>
+					{{else}}
+						<p class="currentSelection">
+						{{name}}</p>
+					{{/if}}
+				{{/each}}
+			</div>
+
+<!-- Regions -->
+			<div class="span3">
+				<h3>Regions</h3>
+				<div class="input-append">
+					<input class="span2 addRegionInput" id="appendedInputButton" type="text">
+					<button class="btn addRegion" type="button">+</button>
+				</div>
+				{{#each region}}
+					{{#if selected}}
+						<div class="input-prepend">
+							<span class="add-on deleteRegion"><i class="icon-trash"></i></span>
+							<input class="span2 editRegionInput" id="inputIcon" type="text" value="{{name}}">
+						</div>
+					{{else}}
+						<p class="currentSelection">
+						{{name}}</p>
+					{{/if}}
+				{{/each}}
+			</div>
+
+<!-- Worktypes -->
+			<div class="span3 offset9">
+				<h3>Work Types</h3>
+				<div class="input-append">
+					<input class="span2 addWorktypeInput" id="appendedInputButton" type="text">
+					<button class="btn addWorktype" type="button">+</button>
+				</div>
+				{{#each worktype}}
+					{{#if selected}}
+						<div class="input-prepend">
+							<span class="add-on deleteWorktype"><i class="icon-trash"></i></span>
+							<input class="span2 editWorktypeInput" id="inputIcon" type="text" value="{{name}}">
+						</div>
+					{{else}}
+						<p class="currentSelection">
+						{{name}}</p>
+					{{/if}}
+				{{/each}}
+			</div>
+
+		</div>
+	</div>
+</template>

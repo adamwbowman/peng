@@ -1,0 +1,77 @@
+
+<!--
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* home.html
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+-->
+
+
+<template name="home">
+	<div class="container">
+		<div class="row">
+			<div class="span10" id="team-cal">
+				<div id="cal-heatmap">
+				</div>
+			</div>
+		</div>
+		<div class="row records">
+			<div class="span12">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Teammate Assigned</th>
+							<th>Client</th>
+							<th>Dates</th>
+						</tr>
+					</thead>
+					<tbody>
+					{{#each record}}
+						{{> tasks}}
+					{{/each}}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="tasks">
+	{{#if selected}}
+	<tr>
+		<td>
+			<select id="teammate">
+			{{#each xteammate}}
+				<option value="{{name}}" {{thisteammate name}}>{{name}}</option>
+			{{/each}}
+			</select>
+		</td>
+		<td>
+			<select id="client">
+			{{#each xclient}}
+				<option value="{{name}}" {{thisclient name}}>{{name}}</option>
+			{{/each}}
+			</select>
+		</td>
+		<td>
+			<div class="input-daterange" id="datepicker" style="display: inline-block;">
+				<input type="text" id="startDate" class="input-small" name="start" placeholder="Start Date" value="{{formatDate startDate}}" />
+				<span class="add-on">to</span>
+				<input type="text" id="endDate" class="input-small" name="end" placeholder="End Date" value="{{formatDate endDate}}" />
+			</div>
+		</td>
+		<td>
+			<div class="btn-group grid">
+				<a class="btn btn-default update" href="#"><i class="fa fa-floppy-o"></i> Update</a>
+				<a class="btn btn-default delete" href="#"><i class="fa fa-trash-o"></i> Delete</a>
+			</div>
+		</td>
+	</tr>
+	{{else}}
+	<tr class="task">
+		<td>{{teammate}}</td>
+		<td>{{client}}</td>
+		<td>{{formatDate startDate}} - {{formatDate endDate}}</td>
+		<td>&nbsp;</td>
+	</tr>
+	{{/if}}
+</template>
